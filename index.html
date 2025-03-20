@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Slide Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .slides img, .slides video {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides" id="slideContainer">
+            <img src="/WhatsApp Image 2025-03-19 at 8.30.34 PM.jpeg" alt="Sample Image">
+            <video src="/WhatsApp Video 2025-03-19 at 8.30.31 PM.mp4" controls></video>
+        </div>
+    </div>
+
+    <script>
+        let index = 0;
+        const slides = document.getElementById("slideContainer");
+        function nextSlide() {
+            index = (index + 1) % 2;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
